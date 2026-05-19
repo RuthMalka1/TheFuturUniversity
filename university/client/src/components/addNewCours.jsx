@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { addCourse } from "../services/coursesApi";
+import { getAllSubjects } from "../services/subjectApi";
 
 
 import {
@@ -28,10 +28,11 @@ function AddNewCourse() {
   useEffect(() => {
     //הכנת פונקציה שמבצעת קריאת שרת
     const getSubjects = async () => {
-      const res = await axios.get("http://localhost:5000/subject");
-      setSubjects(res.data);
-      console.log(res.data);
-    }
+      const data = await getAllSubjects();
+      if (Array.isArray(data)) {
+        setSubjects(data);
+      }
+    };
     //זימון הפונקציה
     getSubjects();
   }, []);

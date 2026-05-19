@@ -12,13 +12,12 @@
  *
  * production: הגדר REACT_APP_API_URL לכתובת המלאה של ה-API.
  */
+const trimTrailingSlash = (url) => url.replace(/\/$/, "");
+
 export const API_BASE_URL = (() => {
-  const fromEnv =
-    typeof process.env.REACT_APP_API_URL !== "undefined"
-      ? String(process.env.REACT_APP_API_URL).replace(/\/$/, "")
-      : null;
-  if (fromEnv !== null && fromEnv !== "") {
-    return fromEnv;
+  const fromEnv = process.env.REACT_APP_API_URL?.trim();
+  if (fromEnv) {
+    return trimTrailingSlash(fromEnv);
   }
   if (typeof window === "undefined") {
     return "http://localhost:5000";
@@ -27,5 +26,5 @@ export const API_BASE_URL = (() => {
   if (port === "3000") {
     return "";
   }
-  return `${protocol}//${hostname}:5000`;
+  return trimTrailingSlash(`${protocol}//${hostname}:5000`);
 })();
