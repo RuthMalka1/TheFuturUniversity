@@ -18,7 +18,12 @@ const usersRouter = require('./routes/usersRoute');
 const noticesRouter = require('./routes/noticesRoute');
 
 const app = express();
-app.use(cors());
+const clientOrigin = process.env.CLIENT_URL?.replace(/\/$/, "");
+if (clientOrigin) {
+    app.use(cors({ origin: clientOrigin, credentials: true }));
+} else {
+    app.use(cors());
+}
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
@@ -59,6 +64,14 @@ const ensureDefaultManager = async () => {
     await existingManager.save();
     console.log(`🔐 default manager credentials ensured for: ${managerPhone}`);
 }
+
+app.get('/', (req, res) => {
+    res.json({
+        ok: true,
+        service: 'TheFuturUniversity API',
+        health: '/health',
+    });
+});
 
 app.get('/health', (req, res) => {
     const ready = mongoose.connection.readyState === 1;

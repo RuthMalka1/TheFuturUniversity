@@ -23,8 +23,13 @@ export const API_BASE_URL = (() => {
     return "http://localhost:5000";
   }
   const { hostname, port, protocol } = window.location;
-  if (port === "3000") {
+  // Local Create React App dev server (uses package.json proxy)
+  if (port === "3000" || hostname === "localhost" || hostname === "127.0.0.1") {
     return "";
   }
-  return trimTrailingSlash(`${protocol}//${hostname}:5000`);
+  // Hosted static site (e.g. Render) — API must come from REACT_APP_API_URL at build time
+  console.warn(
+    "REACT_APP_API_URL is not set. Set it in Render → Environment before building the client."
+  );
+  return "";
 })();
