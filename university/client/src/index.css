@@ -1,0 +1,58 @@
+/* פלטת צבעים אחידה לפרויקט – אינדיגו · סגול · שמיים · קורל */
+:root {
+  --u-ink: #3730a3;
+  --u-ink-mid: #4f46e5;
+  --u-ink-deep: #312e81;
+  --u-text: #334155;
+  --u-text-muted: #64748b;
+  --u-text-on-hero: #f8fafc;
+
+  --u-surface: #ffffff;
+  --u-page-grad: linear-gradient(180deg, #eef2ff 0%, #faf5ff 36%, #fff7ed 100%);
+
+  --u-border: #e0e7ff;
+  --u-border-strong: #c7d2fe;
+  --u-nav-border: #e5e7eb;
+
+  --u-accent: #6366f1;
+  --u-accent-hover: #4f46e5;
+
+  --u-hero-grad: linear-gradient(125deg, #6366f1 0%, #8b5cf6 44%, #38bdf8 100%);
+  --u-hero-badge-bg: #e0e7ff;
+  --u-hero-badge-text: var(--u-ink-deep);
+
+  /* עמוד התחברות – רקע בהיר, אותה משפחת צבעים */
+  --u-login-page-grad: linear-gradient(165deg, #eef2ff 0%, #fdf2f8 42%, #e0f2fe 100%);
+  --u-login-radial-a: rgba(99, 102, 241, 0.35);
+  --u-login-radial-b: rgba(244, 114, 182, 0.28);
+  --u-login-blob-1: #c4b5fd;
+  --u-login-blob-2: #93c5fd;
+  --u-login-blob-3: #fbcfe8;
+  --u-login-blob-4: #a7f3d0;
+  --u-login-card-bg: rgba(255, 255, 255, 0.82);
+  --u-login-card-border: rgba(255, 255, 255, 0.95);
+  --u-login-shadow: rgba(99, 102, 241, 0.18);
+  --u-login-text: var(--u-ink-deep);
+  --u-login-text-muted: rgba(49, 46, 129, 0.7);
+  --u-login-input-bg: rgba(255, 255, 255, 0.92);
+  --u-login-input-border: rgba(99, 102, 241, 0.22);
+  --u-login-btn-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #f472b6 100%);
+  --u-login-btn-shadow: rgba(99, 102, 241, 0.35);
+  --u-login-brand-grad: var(--u-login-btn-grad);
+  --u-login-card-shadow: 0 28px 64px rgba(99, 102, 241, 0.2);
+}
+
+body {
+  margin: 0;
+  color: var(--u-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
